@@ -1,0 +1,27 @@
+[
+  {
+    "id": 1,
+    "owner": "elisa",
+    "content": "rob could you help me?"
+  },
+  {
+    "id": 2,
+    "owner": "barbara",
+    "content": "need someone to analyse"
+  },
+  {
+    "id": 3,
+    "owner": "victoria",
+    "content": "need fucking help"
+  },
+  {
+    "id": 1,
+    "owner": "rob",
+    "content": "easy!"
+  },
+  {
+    "id": 3,
+    "owner": "todd",
+    "content": "resolved"
+  }
+]

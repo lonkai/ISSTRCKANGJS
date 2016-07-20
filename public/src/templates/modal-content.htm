@@ -1,0 +1,37 @@
+<div class="modal-header bg-primary">
+    <h3 class="modal-title" ng-show="ModalCtrl.add">Add Issue</h3>
+    <h3 class="modal-title" ng-show="ModalCtrl.edit">Edit Issue</h3>
+</div>
+<div class="modal-body">
+    <form>
+        <div class="form-group">
+            <label for="inputId">ID</label>
+            <input id="inputId" class="form-control" type="text" ng-model="ModalCtrl.issueList.id" readonly>
+        </div>
+        <div class="form-group">
+            <label for="inputStatus">Status</label>
+            <select class="form-control" id="inputStatus" ng-model="ModalCtrl.issueList.status"
+                    ng-options="status.name for status in ModalCtrl.stasuses track by status.name"></select>
+        </div>
+        <div class="form-group">
+            <label for="inputLogin">Summary</label>
+            <textarea class="form-control" rows="4" id="inputLogin" placeholder="Summary" ng-model="ModalCtrl.issueList.summary">
+            </textarea>
+        </div>
+        <div class="form-group">
+            <label for="inputPriority">Priority</label>
+            <select class="form-control" id="inputPriority" ng-model="ModalCtrl.issueList.priority"
+                    ng-options="priority.name for priority in ModalCtrl.priorities track by priority.id"></select>
+        </div>
+        <div class="form-group">
+            <label for="inputAssign">Assigned to</label>
+            <input id="inputAssign" class="form-control"
+                   ng-model="ModalCtrl.issueList.assignedto">
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-danger" ng-show="ModalCtrl.edit" ng-click="ModalCtrl.delete()">Delete</button>
+    <button class="btn btn-primary" ng-click="ModalCtrl.ok()">Save</button>
+    <button class="btn btn-default" ng-click="ModalCtrl.cancel()">Cancel</button>
+</div>

@@ -1,0 +1,12 @@
+<!-- Modal content-->
+<div class="modal-body">
+    <p>Are you sure you want to
+        <span ng-show="ModalCtrl.change">change</span>
+        <span ng-show="ModalCtrl.delete">delete</span>
+        it?</p>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" ng-click="ModalCtrl.ok()">YES</button>
+    <button class="btn btn-default" ng-click="ModalCtrl.cancel()">NO</button>
+</div>
+

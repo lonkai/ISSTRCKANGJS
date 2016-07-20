@@ -1,0 +1,61 @@
+<div class="well-sm">
+<strong>About Us</strong>
+<div class="modal-body">
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+            <img src="./src/images/KXtRDVzG5Ac.jpg" class="img-responsive img-circle" alt="There is a cat">
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+            <h5><strong>Rate my application</strong></h5>
+            <input type="radio" name="poll" ng-disabled="!ModalCtrl.log"
+                   ng-value="ModalCtrl.poll.first.name"
+                   ng-model="ModalCtrl.count">PERFECT!
+            <div class="">
+                <uib-progressbar max="100"
+                                 value="ModalCtrl.poll.first.value * 100 / ModalCtrl.poll.people"
+                                 type="warning" style="margin: 0;"><span
+                        style="color:darkslategrey;">
+                                        <i>{{ModalCtrl.round(ModalCtrl.poll.first.value, ModalCtrl.poll.people)}}%</i></span>
+                </uib-progressbar>
+            </div>
+            <input type="radio" name="poll" ng-disabled="!ModalCtrl.log"
+                   ng-value="ModalCtrl.poll.second.name"
+                   ng-model="ModalCtrl.count">Very Good!
+            <div class="">
+                <uib-progressbar max="100"
+                                 value="ModalCtrl.poll.second.value * 100 / ModalCtrl.poll.people"
+                                 type="success" style="margin: 0;"><span
+                        style="color:darkslategrey;"><i>{{ModalCtrl.round(ModalCtrl.poll.second.value, ModalCtrl.poll.people)}}%</i></span>
+                </uib-progressbar>
+            </div>
+            <input type="radio" name="poll" ng-disabled="!ModalCtrl.log"
+                   ng-value="ModalCtrl.poll.third.name"
+                   ng-model="ModalCtrl.count">You're fucking amazing!
+            <div class="">
+                <uib-progressbar max="100"
+                                 value="ModalCtrl.poll.third.value * 100 / ModalCtrl.poll.people"
+                                 type="danger" style="margin: 0;"><span
+                        style="color:darkslategrey;">
+                                        <i>{{ModalCtrl.round(ModalCtrl.poll.third.value, ModalCtrl.poll.people)}}%</i></span>
+                </uib-progressbar>
+            </div>
+            <input type="radio" name="poll" ng-disabled="!ModalCtrl.log"
+                   ng-value="ModalCtrl.poll.fourth.name"
+                   ng-model="ModalCtrl.count">TRASH!!!
+            <div class="">
+                <uib-progressbar class="progress-striped active" max="100"
+                                 value="ModalCtrl.poll.fourth.value * 100 / ModalCtrl.poll.people"
+                                 type="danger" style="margin: 0;"><span
+                        style="color:darkslategrey;">
+                                        <i>{{ModalCtrl.poll.fourth.value * 100 / ModalCtrl.poll.people}}%</i></span>
+                </uib-progressbar>
+            </div>
+            <button class="btn btn-primary btn-sm" ng-disabled="!ModalCtrl.log" type="submit"
+                    ng-click="ModalCtrl.sendPoll()">Submit
+            </button>
+            {{ModalCtrl.poll.people}} people voted
+            <p ng-show="!ModalCtrl.log">Thanks for your vote!</p>
+        </div>
+    </div>
+</div>
+</div>

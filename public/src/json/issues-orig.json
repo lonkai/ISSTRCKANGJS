@@ -1,0 +1,108 @@
+[
+  {
+    "id": 1,
+    "status": {
+      "id": 2
+    },
+    "summary": "trying to access http://qdn.qad.com gives the message 'Service Unavailable The server is temporarily unable to service your request due to maintenance downtime or capacity problems. Please try again later.'",
+    "description": "Is this a network issue?There is no http: //systemstatus.qad.com message for this issue.",
+    "priority": {
+      "id": 2
+    },
+    "lastupdated": "13.11.2016",
+    "assignedto": "rob"
+  },
+  {
+    "id": 2,
+    "status": {
+      "id": 1
+    },
+    "summary": "Remove community bubble plugin from confluence",
+    "description": "This add-on is not compatible with our current version and it is not longer supported. Several macros such as my-picture and my-favorites are still in use.",
+    "priority": {
+      "id": 3
+    },
+    "lastupdated": "28.02.2016",
+    "assignedto": ""
+  },
+  {
+    "id": 3,
+    "status": {
+      "id": 3
+    },
+    "summary": "Can't Add or Edit Confluence Macros",
+    "description": "Can't add or edit Confluence macros after upgrade events. Probably due to re-indexing now in progress.",
+    "priority": {
+      "id": 3
+    },
+    "lastupdated": "23.12.2016",
+    "assignedto": "todd"
+  },
+  {
+    "id": 4,
+    "status": {
+      "id": 1
+    },
+    "summary": "Update pages in QDN to reflect new organization and roles",
+    "description": "Pages needed to be updated that describe roles and organization. Some are simply outdated and now we have a new organization in R&D after Barry's departure.",
+    "priority": {
+      "id": 2
+    },
+    "lastupdated": "21.09.2016",
+    "assignedto": ""
+  },
+  {
+    "id": 5,
+    "status": {
+      "id": 2
+    },
+    "summary": "PRECISION Space",
+    "description": "Is it possible to change the top level page title to 'Precision R&D Group'. If I do this the URL changes to some number generated URL and the left side changed to PRECISION:PRECISION Group. If the title can be changed but the URL and left menu changed correctly to reflect the title change that would be great.Let me know if you can help.Regards,Peter.",
+    "priority": {
+      "id": 2
+    },
+    "lastupdated": "08.12.2016",
+    "assignedto": "ben"
+  },
+  {
+    "id": 6,
+    "status": {
+      "id": 2
+    },
+    "summary": "Test Confluence Hosted by Contigex",
+    "description": "This ticket is for gathering information and feedback on the test instance in the cloud, hosted by Contigex. This is part of a project to move all the Atlassian tools at QAD to the cloud. URL:",
+    "priority": {
+      "id": 3
+    },
+    "lastupdated": "23.12.2016",
+    "assignedto": "michael"
+  },
+  {
+    "id": 7,
+    "status": {
+      "id": 1
+    },
+    "summary": "Create ESC Space w/ template and workflow",
+    "description": "Need a space to capture all external source code (ESC) product changes. Need to have a template that has questions around licensing, exporting, change definition, etc. Need notifications when changes are made. All prod architects and POs. Need a workflow with 3 approvers: Kevin, team or product architect, and QA person like Craig. We need a way to trigger when teams need to fill this template out. Probably by cutoff where cutoff date is the absolute date. If a team knows that this product needs to be there and they know the version they need it should be submitted under this new space using the template.",
+    "priority"
+    :
+  {
+    "id": 3
+  },
+  "lastupdated": "23.12.2016",
+  "assignedto": ""
+  },
+  {
+    "id": 8,
+    "status": {
+      "id": 3
+    },
+    "summary": "Export to PDF results in Page Not Found",
+    "description": "Selecting 'Export to PDF' on any page results in a 'Page Not Found' message.",
+    "priority": {
+      "id": 2
+    },
+    "lastupdated": "13.01.2016",
+    "assignedto": ""
+  }
+]

@@ -1,0 +1,27 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Main menu</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="">
+                <img border="0" alt="SoftServe QAD Support" src="./src/images/logo.png">
+            </a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="" ng-click="iss_ctrl.addIssue()">Create Issue</a></li>
+                <li><a href="javascript:history.go(0)">Refresh</a></li>
+                <li><a href="" ng-click="iss_ctrl.settings()">Settings</a></li>
+                <li><a href="" ng-click="iss_ctrl.help()">Help</a></li>
+            </ul>
+            <form class="navbar-form navbar-right">
+                <input type="text" class="form-control input-sm" placeholder="Search..." ng-model="iss_ctrl.searchQuery">
+            </form>
+        </div>
+    </div>
+</nav>

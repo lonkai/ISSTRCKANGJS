@@ -1,0 +1,22 @@
+<div class="well">
+    <h3 class="modal-title">Settings</h3>
+</div>
+<div class="modal-body">
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+            <label>
+                Color scheme:
+                <div ng-repeat="scheme in ModalCtrl.colorScheme">
+                    <input type="radio" ng-model="ModalCtrl.scheme" value="{{scheme.name}}">{{scheme.name}}
+                </div>
+            </label>
+            <div ng-repeat="status in ModalCtrl.statuses">
+                {{status.name}}: bootstrap class=<label>{{ModalCtrl.setClass(status)}}</label>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" ng-click="ModalCtrl.ok()">Save</button>
+    <button class="btn btn-default" ng-click="ModalCtrl.cancel()">Cancel</button>
+</div>
