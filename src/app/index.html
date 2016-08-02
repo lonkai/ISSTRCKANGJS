@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="issueTrackerApp">>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SuperMegaIssueTracker</title>
+    <!-- bower:css -->
+    <!-- bower installed css files will go here... -->
+    <!-- endinject -->
+    <!-- customCss:css -->
+    <!-- built css files will go here... -->
+    <!-- endinject -->
+</head>
+<body>
+
+<header></header>
+
+<article></article>
+<section></section>
+
+<div></div>
+
+<div ng-controller="IssueTrackerCtrl as iss_ctrl" id="wrapper" ng-cloak>
+
+    <div class="container-fluid">
+        <nav-menu></nav-menu>
+        <div id="content" class="row">
+            <div class="col-sm-12 col-md-12 col-xs-12 main-content">
+                <div class="alert alert-warning alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    Hi Guest! Check my application. You can leave feedback by creating an issue. Don't forget to save it.
+                    Also you can rate my Issue Tracker using the help tab.
+                </div>
+                <h1 class="page-header">AngularJS Issue Tracker</h1>
+                <h4 class="page-header" ng-if="iss_ctrl.remain()">Remaining: {{iss_ctrl.remain()}} opened issues from
+                    {{iss_ctrl.issueList.length}}</h4>
+                <div class="table">
+                    <table class="table table-hover table-condensed table-bordered">
+                        <thead>
+                        <tr class="bg-warning">
+                            <th class="table-first-col col-lg-1 col-md-1 col-sm-1 col-xs-1">ID</th>
+                            <th class="col-lg-1 col-md-1 hidden-sm hidden-xs">STATUS</th>
+                            <th class="col-lg-7 col-md-7 col-sm-3 col-xs-3">ISSUE</th>
+                            <th class="col-lg-1 col-md-1 hidden-sm hidden-xs">PRIORITY</th>
+                            <th class="col-lg-1 col-md-1 col-sm-1 col-xs-1">LAST UPDATED</th>
+                            <th class="col-lg-1 col-md-1 col-sm-1 col-xs-1">ASSIGNED TO</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr class="{{iss_ctrl.setClass(issue.status)}}"
+                            ng-repeat="issue in iss_ctrl.issueList | filter: iss_ctrl.searchQuery">
+                            <td class="text-center table-first-col col-lg-1 col-md-1 col-sm-1 col-xs-1">{{issue.id}}
+                                <div class="btn-group dropup" uib-dropdown>
+                                    <button type="button" class="btn btn-default btn-xs pull-right
+                                " uib-dropdown-toggle>
+                                        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-up" uib-dropdown-menu role="menu"
+                                        aria-labelledby="btn-append-to-single-button">
+                                        <li role="menuitem"><a href="" ng-click="iss_ctrl.addIssue()">create</a></li>
+                                        <li role="menuitem"><a href=""
+                                                               ng-click="iss_ctrl.editIssue(issue, $index)">edit</a>
+                                        <li role="menuitem"><a href=""
+                                                               ng-click="iss_ctrl.deleteIssue($index)">delete</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </td>
+                            <td class="col-lg-1 col-md-1 hidden-sm hidden-xs">
+                                <select class="form-control input-sm span" ng-model="iss_ctrl.initIssue[$index].status" ng-change="iss_ctrl.dialog(iss_ctrl.initIssue[$index].status, $index)"
+                                        ng-options="status.name for status in iss_ctrl.stasuses track by status.id">
+                                </select>
+                            </td>
+                            <td class="col-lg-7 col-md-7 col-sm-7 col-xs-7">{{issue.summary}}
+                                <br>
+                                <button type="button" ng-click="iscollapsed = !iscollapsed" class="bg-{{iss_ctrl.setClass(issue.status)}} btn btn-sm
+                                dropdown-toggle" data-toggle="dropdown">
+                                    <span class="caret"></span>
+                                </button>
+                                <div uib-collapse="!iscollapsed">
+                                    <hr>
+                                    <label for="desc">Description:</label>
+                                    <div id="desc">
+                                        {{issue.description}}
+                                    </div>
+                                    <hr>
+                                    <label for="comment">Comments:</label>
+                                    <div id="comment" class="panel panel-default"
+                                         ng-repeat="comment in iss_ctrl.comments | filter: {issue_id: issue.id}">
+                                        {{comment.owner}}
+                                        added a comment :
+
+                                        <div class="panel panel-body" style="margin: 0">
+                                            {{comment.content}}
+                                        </div>
+                                        <button ng-hide="issue.status.id==3" type="button"
+                                                class="btn btn-danger btn-xs pull-right"
+                                                ng-click="iss_ctrl.deleteComment(comment.id)">delete
+                                        </button>
+                                    </div>
+                                    <button ng-hide="issue.status.id==3" type="button"
+                                            class="btn btn-default btn-sm"
+                                            ng-click="iss_ctrl.addComment(issue.id)">add new
+                                    </button>
+                                </div>
+                            </td>
+                            <td class="col-lg-1 col-md-1 hidden-sm hidden-xs">
+                                <select class="form-control input-sm"
+                                        ng-options="priority.name for priority in iss_ctrl.priorities track by priority.id"
+                                        ng-model="iss_ctrl.initIssue[$index].priority"
+                                        ng-change="iss_ctrl.dialog(iss_ctrl.initIssue[$index].priority, $index)">
+                                </select>
+                            </td>
+                            <td class="text-center col-lg-1 col-md-1 col-sm-1 col-xs-1">{{issue.lastupdated}}</td>
+                            <td class="text-center col-lg-1 col-md-1 col-sm-1 col-xs-1">{{issue.assignedto}}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+</div>
+
+<footer class="navbar navbar-fixed-bottom navbar-inverse">
+    <div class="foot">
+        <h4>ISSUE TRACKER</h4>
+    </div>
+</footer>
+
+<!-- bower:js -->
+<!-- endinject -->
+
+<!-- bundle:js -->
+<!-- endinject -->
+
+<!-- templates:js -->
+<!-- endinject -->
+
+</body>
+</html>

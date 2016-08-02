@@ -1,0 +1,14 @@
+{
+  "servePort": 5000,
+  "liveReloadPort": 5001,
+  "url":"http://localhost",
+  "appDir": "./src/app",
+  "destPathName" : "./dist",
+  "tmp": "./.tmp",
+  "debug":true,
+  "minify":false,
+  "freeze": false,
+  "map": true,
+  "watch": false,
+  "livereload": false
+}
