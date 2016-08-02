@@ -6,7 +6,6 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
-var users = require('./routes/users');
 
 var app = express();
 // view engine setup
@@ -24,7 +23,6 @@ app.use(cookieParser());
 app.use(express.static('public'));
 
 app.use('/', routes);
-app.use('/users', users);
 
 app.get('/', function (req, res) {
   //res.send('Hello World!');
