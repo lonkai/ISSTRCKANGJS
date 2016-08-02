@@ -1,21 +1,55 @@
 {
-  "name": "issue_tracker",
+  "name": "Issue Tracker",
   "version": "0.0.0",
-  "private": true,
-  "scripts": {
-    "start": "node ./bin/www"
-  },
+  "description": "",
+  "main": "gulpfile.js",
   "dependencies": {
-    "body-parser": "~1.15.1",
-    "cookie-parser": "~1.4.3",
-    "debug": "~2.2.0",
-    "express": "~4.13.4",
-    "jade": "~1.11.0",
-    "morgan": "~1.7.0",
-    "serve-favicon": "~2.3.0"
+    "gulp": "^3.9.0",
+    "q": "^1.4.1"
   },
-  "engines": {
-    "node": "0.8.x",
-    "npm": "1.1.x"
+  "devDependencies": {
+    "angular-ui-bootstrap": "^2.0.0",
+    "babelify": "^6.1.3",
+    "browserify": "^10.2.6",
+    "browserify-shim": "^3.8.9",
+    "colors": "^1.1.2",
+    "connect-livereload": "^0.5.3",
+    "del": "^1.2.0",
+    "express": "^4.13.1",
+    "gulp-angular-templatecache": "^1.7.0",
+    "gulp-if": "^1.2.5",
+    "gulp-inject": "^1.3.1",
+    "gulp-sourcemaps": "^1.5.2",
+    "gulp-stylus": "^2.0.5",
+    "gulp-uglifyjs": "^0.6.2",
+    "gulp-util": "^3.0.6",
+    "lodash.assign": "^3.2.0",
+    "main-bower-files": "^2.9.0",
+    "nib": "^1.1.0",
+    "opn": "^3.0.2",
+    "require-dir": "^0.3.0",
+    "run-sequence": "^1.1.1",
+    "tiny-lr": "^0.1.6",
+    "underscore": "^1.8.3",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0",
+    "watchify": "^3.2.3"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Igor Pavliv",
+  "license": "",
+  "browser": {
+    "promise": "./node_modules/q/q.js"
+  },
+  "browserify-shim": {
+    "jquery": "global:$",
+    "angular": "global:angular"
+  },
+  "browserify": {
+    "transform": [
+      "browserify-shim"
+    ]
   }
 }
