@@ -2,7 +2,7 @@
   "servePort": 5000,
   "liveReloadPort": 5001,
   "url":"http://localhost",
-  "appDir": "./src/app",
+  "appDir": "./src",
   "destPathName" : "./dist",
   "tmp": "./.tmp",
   "debug":true,

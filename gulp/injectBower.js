@@ -19,7 +19,7 @@ gulp.task('injectBower',function () {
 				read: false
 			}
 		), {
-			ignorePath: 'src/app',
+			ignorePath: 'src',
 			name: 'bower'
 		}))
 	 .pipe(gulp.dest(destPathName + ''));

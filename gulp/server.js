@@ -32,6 +32,9 @@ gulp.task('express', function (cb) {
 		}
 	}));
 //my express
+	var cookieParser = require('cookie-parser');
+	var bodyParser = require('body-parser');
+
 	app.use(bodyParser.json());
 	app.use(bodyParser.urlencoded({ extended: true }));
 	app.use(cookieParser());
@@ -40,7 +43,7 @@ gulp.task('express', function (cb) {
 		var data = req.body;
 		var fs = require('fs');
 
-		fs.writeFile("src/app/json/issues.json", JSON.stringify(data), function (err) {
+		fs.writeFile("src/json/issues.json", JSON.stringify(data), function (err) {
 			if (err) {
 				console.log(err);
 			} else {
@@ -64,7 +67,7 @@ gulp.task('express', function (cb) {
 		var data = req.body;
 		var fs = require('fs');
 
-		fs.writeFile("src/app/json/comments.json", JSON.stringify(data), function (err) {
+		fs.writeFile("src/json/comments.json", JSON.stringify(data), function (err) {
 			if (err) {
 				console.log(err);
 			} else {
@@ -89,7 +92,7 @@ gulp.task('express', function (cb) {
 		var data = req.body;
 		var fs = require('fs');
 
-		fs.writeFile("src/app/json/poll.json", JSON.stringify(data), function (err) {
+		fs.writeFile("src/json/poll.json", JSON.stringify(data), function (err) {
 			if (err) {
 				console.log(err);
 			} else {
@@ -198,57 +201,3 @@ gulp.task('serve', function (done) {
 });
 
 /**********************/
-//express
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
-
-var app = express();
-
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
-app.engine('html', require('ejs').renderFile);
-app.set('view engine', 'html');
-
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cookieParser());
-app.use(express.static('public'));
-
-app.get('/', function (req, res) {
-	res.send('Hello World!');
-});
-
-app.get('src/app/json/issues.json', function (req, res) {
-
-	var fs = require('fs');
-	//fs.appendFile("./public/src/json/issues-new.json", JSON.stringify(data), function(err) {
-	fs.readFile('.src/app/json/issues.json', function (err, data) {
-		if (err) throw err;
-		console.log(data);
-	});
-
-});
-
-
-
-app.post('/poll', function (req, res) {
-	console.log('ddfsdfsdfdsfdsfds');
-	var data = req.body;
-	var fs = require('fs');
-	//fs.appendFile("./public/src/json/issues-new.json", JSON.stringify(data), function(err) {
-	fs.writeFile("src/app/json/poll.json", JSON.stringify(data), function (err) {
-		if (err) {
-			console.log(err);
-		} else {
-			console.log("Файл3 Збережено!");
-		}
-	});
-
-	res.send('nice3');
-
-});
-
-module.exports = app;
